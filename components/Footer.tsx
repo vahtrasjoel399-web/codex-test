@@ -9,7 +9,7 @@ export async function Footer({locale}: {locale: Locale}) {
   const columns = [
     ['catering', 'menus', 'references', 'how-to-order', 'contact'],
     ['bakery', 'bread', 'pastry', 'cakes', 'custom-cakes'],
-    ['references', 'pricing', 'delivery', 'how-to-order', 'faq', 'contact']
+    ['references', 'pricing', 'how-to-order', 'faq', 'contact']
   ];
   const labels = (await import('@/config/routes')).routeById;
   return (

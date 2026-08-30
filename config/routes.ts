@@ -63,7 +63,6 @@ export const routeEntries: RouteEntry[] = [
   r('case-family', ['tood/perekondlik-pidu', 'raboty/semeynyy-prazdnik', 'references/family-celebration'], ['Perekondlik pidu koduaias', 'Семейный праздник в саду', 'A family celebration in the garden'], 'article', 'references'),
 
   r('pricing', ['hinnad', 'tseny', 'pricing'], ['Kuidas kujuneb tellimuse hind', 'Как рассчитывается цена заказа', 'How an order is priced'], 'utility', 'utility'),
-  r('delivery', ['tarnepiirkonnad', 'zony-dostavki', 'delivery-areas'], ['Tarne Tallinnas ja 50 km raadiuses', 'Доставка по Таллинну и в радиусе 50 км', 'Delivery across Tallinn and within 50 km'], 'utility', 'utility'),
   r('how-to-order', ['kuidas-tellida', 'kak-zakazat', 'how-to-order'], ['Kuidas tellimus liigub', 'Как проходит заказ', 'How an order moves'], 'utility', 'utility'),
 
   r('journal', ['blogi', 'blog', 'journal'], ['Märkmed pagarilaualt', 'Записи с пекарского стола', 'Notes from the baker’s table'], 'catalog', 'journal'),

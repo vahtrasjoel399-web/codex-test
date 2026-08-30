@@ -103,15 +103,20 @@ function ServiceDetailTemplate({entry, locale}: {entry: RouteEntry; locale: Loca
 
 function CatalogTemplate({entry, locale}: {entry: RouteEntry; locale: Locale}) {
   const productGroupByRoute: Partial<Record<string, CatalogProduct['group']>> = {cakes: 'cakes', pastry: 'bakes', bread: 'snacks', 'gluten-free': 'platters'};
-  const isOrderCatalog = entry.id === 'menus' || entry.section === 'bakery';
-  if (isOrderCatalog) {
-    const group = productGroupByRoute[entry.id];
-    const count = group ? catalogProducts.filter((item) => item.group === group).length : catalogProducts.length;
+  const group = productGroupByRoute[entry.id];
+  if (group) {
+    const count = catalogProducts.filter((item) => item.group === group).length;
     return <><section className="catalog-hero grid-shell"><Breadcrumb entry={entry} locale={locale}/><span className="section-index">CAT / {count.toString().padStart(2,'0')}</span><h1>{entry.titles[locale]}</h1><p>{pageCopy(entry, locale).intro}</p></section><ProductPriceList locale={locale} group={group}/><ClosingCta locale={locale}/></>;
   }
   let items: {id: string; code: string; meta: Record<Locale, string>; group?: string}[] = cards.products.map((item) => ({...item, group: ['seeded-sourdough','rye-bread','country-loaf'].includes(item.id) ? 'bread' : ['cardamom-bun','croissant'].includes(item.id) ? 'pastry' : ['sea-buckthorn-cake','chocolate-cake'].includes(item.id) ? 'cakes' : 'gluten-free'}));
   let image = productsImage;
   let filters: {value: string; label: string}[] | undefined;
+  if (entry.id === 'bakery') items = [
+    {id:'cakes',code:'01',group:'cakes',meta:{et:'tordid ja koogid',ru:'торты и пирожные',en:'cakes and desserts'}},
+    {id:'pastry',code:'02',group:'pastry',meta:{et:'värske küpsetis',ru:'свежая выпечка',en:'fresh bakes'}},
+    {id:'bread',code:'03',group:'bread',meta:{et:'suupisted ja lihatoidud',ru:'закуски и мясные блюда',en:'snacks and meat dishes'}},
+    {id:'gluten-free',code:'04',group:'gluten-free',meta:{et:'vaagnad',ru:'ассорти и подносы',en:'platters'}}
+  ];
   if (entry.section === 'menus') {items = cards.menus; image = cateringImage;}
   if (entry.section === 'references') {items = cards.cases; image = cateringImage;}
   if (entry.section === 'journal') {items = cards.journal; image = heroImage;}
@@ -122,7 +127,6 @@ function CatalogTemplate({entry, locale}: {entry: RouteEntry; locale: Locale}) {
   ];
   if (entry.id === 'gallery') items = [...cards.cases, ...cards.products.slice(0,3)];
   if (entry.section === 'bakery' && ['bread','pastry','cakes','gluten-free'].includes(entry.id)) items = items.filter((item) => item.group === entry.id);
-  if (entry.id === 'bakery') filters = [{value:'all',label: locale === 'et' ? 'Kõik' : locale === 'ru' ? 'Все' : 'All'}, ...['bread','pastry','cakes','gluten-free'].map((id) => ({value:id,label:routeById[id].titles[locale]}))];
   return <><section className="catalog-hero grid-shell"><Breadcrumb entry={entry} locale={locale}/><span className="section-index">CAT / {items.length.toString().padStart(2,'0')}</span><h1>{entry.titles[locale]}</h1><p>{pageCopy(entry, locale).intro}</p></section><section className="catalog-wrap"><CatalogGrid items={items} locale={locale} image={image} filters={filters}/></section><ClosingCta locale={locale} type={entry.section === 'bakery' ? 'corporate' : undefined}/></>;
 }
 

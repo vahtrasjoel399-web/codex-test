@@ -1,4 +1,4 @@
-import type {Metadata} from 'next';
+import type {Metadata, Viewport} from 'next';
 import {headers} from 'next/headers';
 import '@fontsource-variable/unbounded';
 import '@fontsource/ibm-plex-sans/400.css';
@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   title: {default: 'Vara Pagarikoda', template: '%s · Vara'},
   description: 'Hommikul küpsetatud pagaritooted ja täpne toitlustus Tallinnas.',
   icons: {icon: '/icon.svg'}
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover'
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

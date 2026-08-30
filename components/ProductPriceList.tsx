@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import {useEffect, useMemo, useState} from 'react';
-import {Check, Copy, Minus, Phone, Plus, ShoppingBag, Trash2, X} from 'lucide-react';
+import {Check, Copy, Info, Minus, Phone, Plus, ShoppingBag, Trash2, X} from 'lucide-react';
 import {catalogProducts, type CatalogProduct} from '@/content/site-copy';
 import type {Locale} from '@/config/routes';
 
@@ -81,6 +81,8 @@ export function ProductPriceList({locale, group}: {locale: Locale; group?: Group
         <a href="tel:+3725032485"><Phone size={18}/>{custom.call}</a>
       </div>
 
+      <div className="catalog-photo-disclaimer"><Info size={18}/><p>{text.photos}</p></div>
+
       {groups.map((currentGroup, groupIndex) => {
         const items = catalogProducts.filter((item) => item.group === currentGroup);
         return (
@@ -121,8 +123,8 @@ export function ProductPriceList({locale, group}: {locale: Locale; group?: Group
   );
 }
 
-const orderCopy: Record<Locale, Record<'label'|'title'|'intro'|'add'|'open'|'close'|'minus'|'plus'|'remove'|'copy'|'copied'|'call'|'note'|'listTitle', string>> = {
-  et: {label:'SOOVINIMEKIRI',title:'Minu tellimus',intro:'Lisa kogused, kopeeri nimekiri ja helista — nii on soovid kohe käepärast.',add:'Lisa',open:'Minu nimekiri',close:'Sulge',minus:'Vähenda kogust',plus:'Suurenda kogust',remove:'Eemalda',copy:'Kopeeri nimekiri',copied:'Kopeeritud',call:'Helista pagarile',note:'Nimekiri ei kinnita tellimust. Saadavus, kuupäev, kogused ja lõpphind lepitakse telefonis kokku.',listTitle:'Soovin tellida:'},
-  ru: {label:'СПИСОК ЖЕЛАЕМОГО',title:'Мой заказ',intro:'Укажите количество, скопируйте список и позвоните — все пожелания будут под рукой.',add:'Добавить',open:'Мой список',close:'Закрыть',minus:'Уменьшить количество',plus:'Увеличить количество',remove:'Удалить',copy:'Скопировать список',copied:'Скопировано',call:'Позвонить пекарю',note:'Список не подтверждает заказ. Наличие, дату, количество и итоговую цену согласуем по телефону.',listTitle:'Хочу заказать:'},
-  en: {label:'WISH LIST',title:'My order',intro:'Set quantities, copy the list and call — your wishes will be ready to discuss.',add:'Add',open:'My list',close:'Close',minus:'Decrease quantity',plus:'Increase quantity',remove:'Remove',copy:'Copy list',copied:'Copied',call:'Call the baker',note:'This list does not confirm an order. Availability, date, quantities and final price are agreed by phone.',listTitle:'I would like to order:'}
+const orderCopy: Record<Locale, Record<'label'|'title'|'intro'|'add'|'open'|'close'|'minus'|'plus'|'remove'|'copy'|'copied'|'call'|'note'|'listTitle'|'photos', string>> = {
+  et: {label:'SOOVINIMEKIRI',title:'Minu tellimus',intro:'Lisa kogused, kopeeri nimekiri ja helista — nii on soovid kohe käepärast.',add:'Lisa',open:'Minu nimekiri',close:'Sulge',minus:'Vähenda kogust',plus:'Suurenda kogust',remove:'Eemalda',copy:'Kopeeri nimekiri',copied:'Kopeeritud',call:'Helista pagarile',note:'Nimekiri ei kinnita tellimust. Saadavus, kuupäev, kogused ja lõpphind lepitakse telefonis kokku.',listTitle:'Soovin tellida:',photos:'Fotod on illustratiivsed. Valmistoote välimus võib erineda, sest iga tellimus valmistatakse käsitsi.'},
+  ru: {label:'СПИСОК ЖЕЛАЕМОГО',title:'Мой заказ',intro:'Укажите количество, скопируйте список и позвоните — все пожелания будут под рукой.',add:'Добавить',open:'Мой список',close:'Закрыть',minus:'Уменьшить количество',plus:'Увеличить количество',remove:'Удалить',copy:'Скопировать список',copied:'Скопировано',call:'Позвонить пекарю',note:'Список не подтверждает заказ. Наличие, дату, количество и итоговую цену согласуем по телефону.',listTitle:'Хочу заказать:',photos:'Фотографии носят иллюстративный характер. Внешний вид готового изделия может отличаться, поскольку каждый заказ изготавливается вручную.'},
+  en: {label:'WISH LIST',title:'My order',intro:'Set quantities, copy the list and call — your wishes will be ready to discuss.',add:'Add',open:'My list',close:'Close',minus:'Decrease quantity',plus:'Increase quantity',remove:'Remove',copy:'Copy list',copied:'Copied',call:'Call the baker',note:'This list does not confirm an order. Availability, date, quantities and final price are agreed by phone.',listTitle:'I would like to order:',photos:'Photos are illustrative. The finished product may vary because every order is handmade.'}
 };

@@ -14,7 +14,7 @@ const navMenuIds: Record<NavId, readonly string[]> = {
   catering: ['menus', 'references', 'how-to-order', 'contact'],
   bakery: [...bakeryIds, 'custom-cakes'],
   references: ['case-conference', 'case-office', 'case-wedding', 'case-family'],
-  pricing: ['how-to-order', 'delivery', 'faq', 'contact']
+  pricing: ['how-to-order', 'faq', 'contact']
 };
 
 const navFeatured: Record<NavId, string> = {
