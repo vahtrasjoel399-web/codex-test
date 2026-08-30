@@ -31,6 +31,7 @@ export async function Footer({locale}: {locale: Locale}) {
         <div><strong>{t('footerContact')}</strong><br/><a href={`tel:${brand.phone.replace(/\s/g, '')}`}>{brand.phone}</a><br/><a href={`mailto:${brand.email}`}>{brand.email}</a></div>
         <div><strong>{uiCopy[locale].open}</strong><br/>{t('footerReg')}<br/>© {new Date().getFullYear()} Vara</div>
       </div>
+      <p className="footer-photo-note">{t('photoDisclaimer')}</p>
       <div className="footer-legal"><Link href={routeHref(locale, 'privacy')}>{labels.privacy.titles[locale]}</Link><Link href={routeHref(locale, 'terms')}>{labels.terms.titles[locale]}</Link><Link href={routeHref(locale, 'cookies')}>{labels.cookies.titles[locale]}</Link></div>
     </footer>
   );

@@ -47,6 +47,17 @@ export function Header({locale}: {locale: Locale}) {
     return () => document.body.classList.remove('menu-open');
   }, [open]);
 
+  useEffect(() => setOpen(false), [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [open]);
+
   const current = useMemo(() => {
     const pieces = pathname.split('/').filter(Boolean);
     return findRoute(locale, pieces.slice(1));
@@ -74,7 +85,7 @@ export function Header({locale}: {locale: Locale}) {
           {locales.map((item) => <Link className={item === locale ? 'active' : ''} href={switchHref(item)} key={item}>{item}</Link>)}
         </div>
         <a className="header-quote" href="tel:+37255510414">{t('navQuote')}<ArrowUpRight size={16}/></a>
-        <button className="menu-toggle" onClick={() => setOpen(!open)} onMouseEnter={() => setOpen(true)} aria-expanded={open} aria-controls="mobile-menu">
+        <button type="button" className="menu-toggle" onClick={() => setOpen((value) => !value)} aria-label={open ? t('navClose') : t('navOpen')} aria-expanded={open} aria-controls="mobile-menu">
           <span className="sr-only">{open ? t('navClose') : t('navOpen')}</span>{open ? <X /> : <Menu />}
         </button>
       </div>
@@ -88,7 +99,7 @@ export function Header({locale}: {locale: Locale}) {
           <Link style={{transitionDelay: `${navIds.length * 60}ms`}} onClick={() => setOpen(false)} href={routeHref(locale, 'contact')}><span>0{navIds.length + 1}</span>{routeById.contact.titles[locale]}</Link>
         </nav>
         <div className="mobile-menu-foot">
-          <div className="language-row">{locales.map((item) => <Link className={item === locale ? 'active' : ''} href={switchHref(item)} key={item}>{item}</Link>)}</div>
+          <div className="language-row" aria-label={t('navLanguage')}>{locales.map((item) => <Link onClick={() => setOpen(false)} className={item === locale ? 'active' : ''} href={switchHref(item)} key={item}>{item}</Link>)}</div>
           <a href="tel:+37255510414">+372 5551 0414</a>
         </div>
       </div>
