@@ -3,9 +3,10 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect, useMemo, useState} from 'react';
-import {ArrowUpRight, Menu, X} from 'lucide-react';
+import {ArrowUpRight, Instagram, Menu, X} from 'lucide-react';
 import {useTranslations} from 'next-intl';
 import {bakeryIds, findRoute, locales, navIds, routeById, routeHref, type Locale} from '@/config/routes';
+import {brand} from '@/content/site-copy';
 
 type NavId = (typeof navIds)[number];
 
@@ -100,7 +101,7 @@ export function Header({locale}: {locale: Locale}) {
         </nav>
         <div className="mobile-menu-foot">
           <div className="language-row" aria-label={t('navLanguage')}>{locales.map((item) => <Link onClick={() => setOpen(false)} className={item === locale ? 'active' : ''} href={switchHref(item)} key={item}>{item}</Link>)}</div>
-          <a href="tel:+37255510414">+372 5551 0414</a>
+          <div className="mobile-menu-contacts"><a href={brand.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={19}/></a><a href="tel:+37255510414">+372 5551 0414</a></div>
         </div>
       </div>
     </header>

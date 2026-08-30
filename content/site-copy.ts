@@ -28,6 +28,7 @@ export const brand = {
   address: 'Tööstuse 47d, 10416 Tallinn',
   phone: '+372 5551 0414',
   email: 'tellimus@vara.ee',
+  instagram: 'https://www.instagram.com/juliaklein_ou/',
   founded: '2017',
   team: '1',
   radius: '50 km',

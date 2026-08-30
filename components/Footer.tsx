@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {getTranslations} from 'next-intl/server';
-import {ArrowUpRight} from 'lucide-react';
+import {ArrowUpRight, Instagram} from 'lucide-react';
 import {brand, uiCopy} from '@/content/site-copy';
 import {routeHref, type Locale} from '@/config/routes';
 
@@ -28,7 +28,7 @@ export async function Footer({locale}: {locale: Locale}) {
       </div>
       <div className="footer-meta">
         <div><strong>{t('footerVisit')}</strong><br/>{brand.address}<br/>{t('footerHours')}</div>
-        <div><strong>{t('footerContact')}</strong><br/><a href={`tel:${brand.phone.replace(/\s/g, '')}`}>{brand.phone}</a><br/><a href={`mailto:${brand.email}`}>{brand.email}</a></div>
+        <div><strong>{t('footerContact')}</strong><br/><a href={`tel:${brand.phone.replace(/\s/g, '')}`}>{brand.phone}</a><br/><a href={`mailto:${brand.email}`}>{brand.email}</a><br/><a className="instagram-link" href={brand.instagram} target="_blank" rel="noreferrer"><Instagram size={15}/>@juliaklein_ou</a></div>
         <div><strong>{uiCopy[locale].open}</strong><br/>{t('footerReg')}<br/>© {new Date().getFullYear()} Vara</div>
       </div>
       <p className="footer-photo-note">{t('photoDisclaimer')}</p>
