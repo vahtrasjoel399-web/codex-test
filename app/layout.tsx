@@ -3,10 +3,11 @@ import {headers} from 'next/headers';
 import '@fontsource-variable/unbounded';
 import '@fontsource/ibm-plex-sans/400.css';
 import '@fontsource/ibm-plex-sans/600.css';
+import {getSiteUrl} from '@/config/site';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://vara.ee'),
+  metadataBase: getSiteUrl(),
   title: {default: 'Vara Pagarikoda', template: '%s · Vara'},
   description: 'Hommikul küpsetatud pagaritooted ja täpne toitlustus Tallinnas.',
   icons: {icon: '/icon.svg'}
