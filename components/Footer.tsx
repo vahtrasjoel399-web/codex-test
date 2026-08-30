@@ -16,7 +16,7 @@ export async function Footer({locale}: {locale: Locale}) {
     <footer className="site-footer" id="site-footer">
       <div className="footer-top">
         <p className="footer-statement">{t('footerNote')}</p>
-        <a className="footer-arrow" href="tel:+37255510414" aria-label={t('navQuote')}><ArrowUpRight /></a>
+        <a className="footer-arrow" href="tel:+3725032485" aria-label={t('navQuote')}><ArrowUpRight /></a>
       </div>
       <div className="footer-grid">
         {columns.map((column, index) => (

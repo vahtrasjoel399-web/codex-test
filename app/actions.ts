@@ -45,9 +45,9 @@ export async function submitEnquiry(input: unknown): Promise<EnquiryState> {
       `Sõnum: ${d.message || '—'}`
     ];
     const confirmations = {
-      et: ['Sinu tellimussoov jõudis Varasse', 'Aitäh! Võtan sinuga ühendust, et detailid ja kuupäev kokku leppida. Kiire küsimuse korral helista +372 5551 0414.'],
-      ru: ['Vara получила ваш запрос', 'Спасибо! Я свяжусь с вами, чтобы согласовать детали и дату. Если ответ нужен быстро, позвоните: +372 5551 0414.'],
-      en: ['Vara has received your order request', 'Thank you! I will contact you to agree the details and date. If you need a quick answer, call +372 5551 0414.']
+      et: ['Sinu tellimussoov jõudis Varasse', 'Aitäh! Võtan sinuga ühendust, et detailid ja kuupäev kokku leppida. Kiire küsimuse korral helista +372 503 2485.'],
+      ru: ['Vara получила ваш запрос', 'Спасибо! Я свяжусь с вами, чтобы согласовать детали и дату. Если ответ нужен быстро, позвоните: +372 503 2485.'],
+      en: ['Vara has received your order request', 'Thank you! I will contact you to agree the details and date. If you need a quick answer, call +372 503 2485.']
     } as const;
     await Promise.all([
       resend.emails.send({from: 'Vara <orders@vara.ee>', to, subject, text: lines.join('\n')}),

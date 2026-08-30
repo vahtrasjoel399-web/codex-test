@@ -78,7 +78,7 @@ export function ProductPriceList({locale, group}: {locale: Locale; group?: Group
         <span>{custom.label}</span>
         <h2>{custom.title}</h2>
         <p>{custom.body}</p>
-        <a href="tel:+37255510414"><Phone size={18}/>{custom.call}</a>
+        <a href="tel:+3725032485"><Phone size={18}/>{custom.call}</a>
       </div>
 
       {groups.map((currentGroup, groupIndex) => {
@@ -114,7 +114,7 @@ export function ProductPriceList({locale, group}: {locale: Locale; group?: Group
             <button className="order-remove" type="button" onClick={() => setOrder((current) => {const next = {...current}; delete next[item.id]; return next;})} aria-label={text.remove}><Trash2 size={16}/></button>
           </div>)}
         </div>
-        <div className="order-drawer-actions"><button type="button" onClick={copyOrder}>{copied ? <Check size={17}/> : <Copy size={17}/>} {copied ? text.copied : text.copy}</button><a href="tel:+37255510414"><Phone size={17}/>{text.call}</a></div>
+        <div className="order-drawer-actions"><button type="button" onClick={copyOrder}>{copied ? <Check size={17}/> : <Copy size={17}/>} {copied ? text.copied : text.copy}</button><a href="tel:+3725032485"><Phone size={17}/>{text.call}</a></div>
         <small>{text.note}</small>
       </aside>
     </section>

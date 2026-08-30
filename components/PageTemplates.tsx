@@ -34,7 +34,7 @@ function HomeTemplate({locale}: {locale: Locale}) {
             return lines;
           }, [])}/>
           <p>{copy.homeIntro}</p>
-          <div className="hero-links"><a className="button-primary" href="tel:+37255510414">{copy.primary}<Phone/></a><Link className="text-link" href={routeHref(locale, 'bakery')}>{copy.secondary}<ArrowRight/></Link></div>
+          <div className="hero-links"><a className="button-primary" href="tel:+3725032485">{copy.primary}<Phone/></a><Link className="text-link" href={routeHref(locale, 'bakery')}>{copy.secondary}<ArrowRight/></Link></div>
         </div>
         <div className="hero-photo">
           <HeroImage><Image src={heroImage} alt={locale === 'et' ? 'Pagar valmistab värsket tellimust' : locale === 'ru' ? 'Мастер готовит свежую выпечку на заказ' : 'A baker makes a fresh custom order'} fill priority placeholder="blur" sizes="(max-width: 768px) 100vw, 58vw" /></HeroImage>
@@ -140,11 +140,11 @@ function UtilityTemplate({entry, locale}: {entry: RouteEntry; locale: Locale}) {
 }
 
 function EnquiryPage({entry, locale}: {entry: RouteEntry; locale: Locale}) {
-  return <section className="enquiry-page"><div className="enquiry-aside"><Breadcrumb entry={entry} locale={locale}/><span className="section-index">ORDER / 02 MIN</span><h1>{entry.titles[locale]}</h1><p>{pageCopy(entry, locale).intro}</p><div className="enquiry-contact"><span>{locale === 'et' ? 'Eelistad helistada?' : locale === 'ru' ? 'Удобнее позвонить?' : 'Prefer to call?'}</span><a href="tel:+37255510414">{brand.phone}</a><small>{locale === 'et' ? 'Tellimused kokkuleppel' : locale === 'ru' ? 'Заказы по договорённости' : 'Orders by arrangement'}</small></div></div><div className="enquiry-form-wrap"><EnquiryForm locale={locale}/></div></section>;
+  return <section className="enquiry-page"><div className="enquiry-aside"><Breadcrumb entry={entry} locale={locale}/><span className="section-index">ORDER / 02 MIN</span><h1>{entry.titles[locale]}</h1><p>{pageCopy(entry, locale).intro}</p><div className="enquiry-contact"><span>{locale === 'et' ? 'Eelistad helistada?' : locale === 'ru' ? 'Удобнее позвонить?' : 'Prefer to call?'}</span><a href="tel:+3725032485">{brand.phone}</a><small>{locale === 'et' ? 'Tellimused kokkuleppel' : locale === 'ru' ? 'Заказы по договорённости' : 'Orders by arrangement'}</small></div></div><div className="enquiry-form-wrap"><EnquiryForm locale={locale}/></div></section>;
 }
 
 function ThankYou({entry, locale}: {entry: RouteEntry; locale: Locale}) {
-  return <section className="thank-you"><span className="success-mark"><Check/></span><span>RECEIVED / 01</span><h1>{entry.titles[locale]}</h1><p>{locale === 'et' ? 'Aitäh! Võtan sinuga ühendust, et tellimuse detailid ja kuupäev läbi rääkida. Kui soovid kiiremini vastust, helista.' : locale === 'ru' ? 'Спасибо! Я свяжусь с вами, чтобы обсудить детали и дату заказа. Если нужен быстрый ответ, позвоните.' : 'Thank you! I will contact you to discuss the details and date. If you need a quick answer, please call.'}</p><a href="tel:+37255510414">{brand.phone}<ArrowUpRight/></a><Link href={routeHref(locale,'home')}>{locale === 'et' ? 'Tagasi avalehele' : locale === 'ru' ? 'Вернуться на главную' : 'Return home'}</Link></section>;
+  return <section className="thank-you"><span className="success-mark"><Check/></span><span>RECEIVED / 01</span><h1>{entry.titles[locale]}</h1><p>{locale === 'et' ? 'Aitäh! Võtan sinuga ühendust, et tellimuse detailid ja kuupäev läbi rääkida. Kui soovid kiiremini vastust, helista.' : locale === 'ru' ? 'Спасибо! Я свяжусь с вами, чтобы обсудить детали и дату заказа. Если нужен быстрый ответ, позвоните.' : 'Thank you! I will contact you to discuss the details and date. If you need a quick answer, please call.'}</p><a href="tel:+3725032485">{brand.phone}<ArrowUpRight/></a><Link href={routeHref(locale,'home')}>{locale === 'et' ? 'Tagasi avalehele' : locale === 'ru' ? 'Вернуться на главную' : 'Return home'}</Link></section>;
 }
 
 function Breadcrumb({entry, locale}: {entry: RouteEntry; locale: Locale}) {
@@ -161,7 +161,7 @@ function Related({locale, entry}: {locale: Locale; entry: RouteEntry}) {
 
 function ClosingCta({locale, title, body, type: _type}: {locale: Locale; title?: string; body?: string; type?: string}) {
   const copy = uiCopy[locale];
-  return <section className="closing-cta"><div className="visible-grid"/><span>Q—01</span><h2>{title ?? copy.ctaTitle}</h2><p>{body ?? copy.ctaBody}</p><a href="tel:+37255510414">{copy.primary}<Phone/></a></section>;
+  return <section className="closing-cta"><div className="visible-grid"/><span>Q—01</span><h2>{title ?? copy.ctaTitle}</h2><p>{body ?? copy.ctaBody}</p><a href="tel:+3725032485">{copy.primary}<Phone/></a></section>;
 }
 
 function Faq({locale}: {locale: Locale}) {return <section className="faq-list grid-shell">{faqs[locale].map(([q,a],index) => <details key={q}><summary><span>0{index+1}</span><strong>{q}</strong><i>＋</i></summary><p>{a}</p></details>)}</section>}

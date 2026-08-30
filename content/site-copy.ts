@@ -26,7 +26,7 @@ export const brand = {
   name: 'VARA',
   legalName: 'Vara Pagarikoda OÜ',
   address: 'Tööstuse 47d, 10416 Tallinn',
-  phone: '+372 5551 0414',
+  phone: '+372 503 2485',
   email: 'tellimus@vara.ee',
   instagram: 'https://www.instagram.com/juliaklein_ou/',
   founded: '2017',
